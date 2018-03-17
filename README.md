@@ -58,8 +58,7 @@ group {
 }
 ```
 By default iPXE is enabled.  So...
-For every created system in cobbler add host declaration like this example <b>in the created cobbler clients group</b>:  
-
+For every created system in cobbler add host declaration like this example <b>in the created cobbler clients group:  
 ```
 host webserver01 {
   hardware ethernet 00:11:22:AA:BB:CC;
