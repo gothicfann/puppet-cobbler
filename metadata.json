@@ -1,0 +1,11 @@
+{
+  "name": "gothicfan-cobbler",
+  "version": "0.1.0",
+  "author": "gothicfan",
+  "summary": "cobbler ",
+  "license": "Apache-2.0",
+  "source": "https://github.com/gothicfan/cobbler",
+  "dependencies": [
+    {"name":"puppet-selinux","version_requirement":">= 1.5.0"}
+  ]
+}

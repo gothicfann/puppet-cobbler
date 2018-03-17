@@ -1,0 +1,6 @@
+# Install default packages
+yum install epel-release -y
+<% @ks_packages.each do |package| -%>
+yum install <%= package %> -y
+<% end -%>
+yum update -y
