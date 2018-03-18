@@ -40,7 +40,7 @@ Create new group for cobbler clients with the following options:
 group {
   # Cobbler IP
   next-server                10.0.0.5;
-  # Detect vendor class and choose the right bootfile for pxe-system-type
+  # Detect vendor class and choose the right bootfile depenging on pxe-system-type
   class "pxeclients" {
     match if substring (option vendor-class-identifier, 0, 9) = "PXEClient";
     if option pxe-system-type = 00:02 {
