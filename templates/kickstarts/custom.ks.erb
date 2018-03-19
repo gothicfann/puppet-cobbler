@@ -22,7 +22,7 @@ selinux --disabled
 # Network information
 $SNIPPET('network_config')
 # System authorization information
-auth  --useshadow  --passalgo=sha512
+auth --enableshadow --passalgo=sha512
 # Run the Setup Agent on first boot
 firstboot --disable
 # Use network installation
