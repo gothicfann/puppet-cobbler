@@ -72,8 +72,23 @@ $SNIPPET('download_config_files')
 $SNIPPET('koan_environment')
 $SNIPPET('redhat_register')
 $SNIPPET('cobbler_register')
-$SNIPPET('<%= @ks_name %>/ks_ssh_key')
-$SNIPPET('<%= @ks_name %>/ks_packages')
+
+# Install public key for root user
+cd /root
+mkdir --mode=700 .ssh
+cat >> .ssh/authorized_keys <<EOF
+<%= @ks_ssh_key %>
+EOF
+chmod 600 .ssh/authorized_keys
+
+# Install default packages
+yum remove iwl* -y
+yum install epel-release -y
+yum update -y
+<% @ks_packages.each do |package| -%>
+yum install <%= package %> -y
+<% end -%>
+
 # Enable post-install boot notification
 $SNIPPET('post_anamon')
 # Start final steps

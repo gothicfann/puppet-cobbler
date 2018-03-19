@@ -17,24 +17,6 @@ class cobbler::config inherits cobbler::params {
     notify  => [ Service['httpd'], Service['cobblerd']],
   } ->
 
-  file { "/var/lib/cobbler/snippets/${ks_name}":
-    ensure => 'directory',
-  } ->
-
-  file { "/var/lib/cobbler/snippets/${ks_name}/ks_ssh_key":
-    ensure  => present,
-    content => template('cobbler/snippets/ks_ssh_key.erb'),
-    notify  => Service['cobblerd'],
-    mode    => '0644',
-  } ->
-
-  file { "/var/lib/cobbler/snippets/${ks_name}/ks_packages":
-    ensure  => present,
-    content => template('cobbler/snippets/ks_packages.erb'),
-    notify  => Service['cobblerd'],
-    mode    => '0644',
-  } ->
-
   file { "/var/lib/cobbler/kickstarts/${ks_name}.ks":
     ensure  => present,
     content => template('cobbler/kickstarts/custom.ks.erb'),
